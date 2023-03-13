@@ -1,0 +1,21 @@
+.testheader {
+    padding: 10px;
+    background-color: hsl(201, 98%, 70%);
+    color: white;
+    border-bottom: 2px double white;
+}
+.testsidenav {
+    background-color: hsl(201, 98%, 70%);
+    color: white;
+    padding: 10px;
+}
+.question-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px;
+}
+.test-question {
+    margin-bottom: 50px;
+}

@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container-s{
+    margin: 0;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "header header"
+                          "selection-container selection-container";
+    grid-template-rows: 64px 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+.selection-container {
+    width: 100vw;
+    grid-area: "selection-container";
+    display: grid;
+    place-items: center;
+}
+.test-size {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+.test-size-container {
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+.test-size-warn {
+    color: #0288d1; 
+}
+.Test {
+    width: 600px;
+    min-width: 250px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+    bottom: 50px;
+}
+.checkOption {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Add a smooth transition on click */
+  input[type="checkbox"]:checked {
+    transform: scale(1.2);
+    transition: transform 0.2s ease-in-out;
+  }
+form {
+    position: relative;
+}
+.test-info-stat {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+.startTest {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

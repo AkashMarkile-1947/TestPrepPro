@@ -1,0 +1,56 @@
+.analysis-footer {
+    display: flex;
+    width: 98%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid black;
+    bottom: 0;
+    position: fixed;
+    background-color: #fff;
+}
+.record-brief {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border: 1px solid black;
+}
+.rightAns, .wrongAns {
+    width: 95%;
+    margin: 20px auto;
+    border-radius: 15px;
+    border: 1px solid rgb(61, 175, 61);
+    z-index: 1;
+    padding: 20px;
+
+}
+.wrongAns {
+    border: 1px solid rgb(192, 77, 77);
+}
+.right-container {
+    border: 1px solid rgb(61, 175, 61);
+    z-index: 1;
+}
+.wrong-container {
+    border: 1px solid rgb(192, 77, 77);
+    z-index: 1;
+}
+.right-container + .right-container {
+    margin-top: 1px solid white;
+}
+.RevisionTopics  {
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid rgb(192, 77, 77);
+    border-radius: 15px;
+    padding: 20px;
+    z-index: 1;
+}
+.rightTopic {
+    border: 1px solid rgb(61, 175, 61);
+}
+.lastdiv {
+    margin-bottom: 100px;
+}
