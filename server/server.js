@@ -5,8 +5,10 @@ const User = require('./DB/models/userModel');
 const QuestionDB = require('./DB/models/questionModel.js');
 const connection = require('./DB/userDB');
 const UserRecordR = require('./routes/userRecordR');
+const AddQuestionR = require('./routes/AdminRouteR');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 
 
 const JWT_SECRET_KEY  = '!@#$%^&*(WERYIOKGFDCVBNM<>955956596#$%^j8&Y*tG*76**&';
@@ -44,10 +46,10 @@ app.post('/api/taketest', async(req, res) => {
 })
 
 app.use('/', UserRecordR);
-
+app.use('/', AddQuestionR);
 
 app.post('/api/register', async(req, res) => {
-    let {username, password, firstname, lastname, dateofbirth, mothername} = req.body;
+    let {username, password, firstname, lastname, dateofbirth, mothername, isAdmin} = req.body;
     console.log(req.body);
     if (!username || typeof username !== 'string') {
         return res.json({staus: 'error', error: 'Invalid Username'});
@@ -70,7 +72,7 @@ app.post('/api/register', async(req, res) => {
     password = await bcrypt.hash(password, 10);
     try {
         const response = await User.create({
-            firstname, lastname, email: username, password, dateofbirth, mothername
+            firstname, lastname, email: username, password, dateofbirth, mothername, isAdmin
         })
         console.log('user created Successfully', response);
         res.json({status: 'ok', data: "success"});
@@ -93,7 +95,7 @@ app.post('/api/login', async(req, res) => {
     console.log(email, password);
     try {
         const user = await User.findOne({email}).lean();
-        //console.log(user);
+        console.log(user);
 
         if (!user) {
             return res.json({status: 'error', error: 'Invalid username or password'})
@@ -101,11 +103,11 @@ app.post('/api/login', async(req, res) => {
         //comp(password, user.password);
         if (await bcrypt.compare(password, user.password)) {
             //correct password
-            const token = jwt.sign({
-                id: user._id,
-                email: user.email
-            }, JWT_SECRET_KEY);
-            return res.json({status: 'ok', data: token, email: email})
+            if (user.hasOwnProperty("isAdmin")) {
+                return res.json({status: 'ok', email: email, isAdmin: true})
+            } else {
+                return res.json({status: 'ok', email: email, isAdmin: false})
+            }
         } else {
             return  res.json({status: 'error', error: 'Invalid username or password'});
         }
@@ -166,5 +168,4 @@ app.post('/api/changePasswordTwo', async(req, res) => {
 })
 
 
-
-app.listen(3000, () => {console.log('running on 3000')});
+app.listen(5000, () => {console.log('running on 5000')});

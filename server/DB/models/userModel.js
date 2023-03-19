@@ -25,6 +25,9 @@ const UserSchema = new mongoose.Schema({
     mothername:{
         type: String,
         required: true,
+    },
+    isAdmin: {
+        type: Boolean
     }
 },{collection: 'userDB'})
 
