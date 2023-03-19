@@ -15,7 +15,7 @@ function UserBoard() {
     const email = localStorage.getItem('resultemail');
     //console.log(email);
     async function handleLoading() {
-        const response = await fetch('http://localhost:3000/api/getRecord', {
+        const response = await fetch('http://localhost:5000/api/getRecord', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ function UserBoard() {
             <RecordContext.Provider value={result}>
             <div className="dashboard-container" style={{maxWidth: '1400px'}}>
                 <Navbar />
-                <SideNavbar />
+                <SideNavbar navigate={navigate}/>
                 <WelcomeCard />
                 <TakeTest navigate={navigate}/>
                 <Results />
@@ -53,15 +53,16 @@ function UserBoard() {
         </div>
     )
 }*/
-export function SideNavbar() {
+export function SideNavbar({navigate}) {
+    const isAdmin = localStorage.getItem("isAdmin");
     return (
             <div className="nav">
             <LinkTo to="/" className="link">Home</LinkTo>
-            <LinkTo to="/login" className="link">Login</LinkTo>
             <LinkTo to="/takeTest" className="link">Take Test</LinkTo>
             <LinkTo to="/userProfile" className="link">User Profile</LinkTo>
             <a href="#" aria-disabled="true" className="link disabled">Study Material</a>
             <a href="#" aria-disabled="true" className="link disabled">Exams Info</a>
+            {isAdmin && <Link className="link" onClick={() => navigate('../addQuestion', {replace: true})} style={{textDecoration: 'none', cursor: 'pointer'}}>Add Questions</Link>}
         </div>
     )
 }

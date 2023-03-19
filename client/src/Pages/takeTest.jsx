@@ -23,7 +23,7 @@ function TakeTest() {
     const handleSubmit = async(e) => {   
     e.preventDefault();
     console.log(checkboxValues, testSize);
-    const result = await fetch('http://localhost:3000/api/taketest/', {
+    const result = await fetch('http://localhost:5000/api/taketest/', {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json'

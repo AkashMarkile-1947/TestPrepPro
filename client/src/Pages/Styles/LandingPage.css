@@ -213,6 +213,9 @@
     align-items: center;
     margin: 25px auto;
 }
+.btn-container-2 {
+    width: 350px;
+}
 .community-container {
     padding: 100px;
     width: 100%;

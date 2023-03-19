@@ -13,7 +13,7 @@ const UserProfile = () => {
     const email = localStorage.getItem('resultemail');
     //console.log(email);
     async function handleLoading() {
-        const response = await fetch('http://localhost:3000/api/getRecord', {
+        const response = await fetch('http://localhost:5000/api/getRecord', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json'

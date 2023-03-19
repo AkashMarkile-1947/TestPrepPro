@@ -27,7 +27,7 @@ const theme = createTheme();
     const [username, password, firstname, lastname, dateofbirth, mothername] =  
     [data.get('email'),data.get('password'), data.get('firstName'), data.get('lastName'), data.get('dateofbirth'), data.get('mothername')];
     console.log(dateofbirth, mothername);
-    const result = await fetch('http://localhost:3000/api/register', {
+    const result = await fetch('http://localhost:5000/api/register', {
       method: 'POST',
       headers: { 
           'Content-Type': 'application/json'
@@ -38,7 +38,8 @@ const theme = createTheme();
           firstname,
           lastname,
           dateofbirth,
-          mothername
+          mothername,
+          isAdmin: false,
       })
     }).then(res => res.json())
     console.log(result);
