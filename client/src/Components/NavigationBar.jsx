@@ -13,10 +13,11 @@ import './Components.css';
 function Navbar() {
   const navigate = useNavigate();
   const userID =  localStorage.getItem('resultemail');
-
+  const isAdmin = localStorage.getItem("isAdmin");
   function logout() {
     navigate('../', {replace: true});
     localStorage.removeItem("resultemail");
+    localStorage.removeItem("isAdmin");
   }
 
   return (
@@ -33,10 +34,10 @@ function Navbar() {
             <MenuIcon />
   </IconButton>*/}
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} onClick={() => navigate('../', {replace: true})} style={{cursor: 'pointer'}}>
-            TestPrepPro
+            TestPrepPro 
           </Typography>
           {userID && <div className="profile-icon">{userID.slice(0, 2).toUpperCase()}</div>}
-          {userID && <Button color='inherit' variant="outlined" onClick={logout}>Logout</Button>}
+          {userID && <Button color='inherit' variant="outlined" onClick={logout}>Logout <sup style={{fontSize: '0.55rem', position: 'relative', bottom: '5px'}}>{isAdmin && "Admin"}</sup></Button>}
         </Toolbar>
       </AppBar>
     </Box>

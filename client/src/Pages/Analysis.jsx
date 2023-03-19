@@ -12,7 +12,7 @@ function Analysis() {
     const Email = localStorage.getItem("resultemail");
 
     async function saveRecord(record) {
-      const result = await fetch('http://localhost:3000/api/saveRecord', {
+      const result = await fetch('http://localhost:5000/api/saveRecord', {
       method: 'POST',
       headers: { 
           'Content-Type': 'application/json'

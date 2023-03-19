@@ -15,7 +15,7 @@ function ChangePasswordTwo() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const [newpassword, confirmpassword] =  [data.get('newpassword'), data.get('confirmpassword')];
-        const result = await fetch('http://localhost:3000/api/changePasswordTwo', {
+        const result = await fetch('http://localhost:5000/api/changePasswordTwo', {
           method: 'POST',
           headers: { 
               'Content-Type': 'application/json'

@@ -110,7 +110,7 @@ function Review() {
                 <h1>"After using TestPrepPro, I am now more confident in my academic performance. and I got my favourite college"</h1>
                 <div className="review-user">
                     <img src={reviewUser} className="review-icon" alt="user" />
-                    <p>Jordan Smith</p>
+                    <p>Jabya Sarpotdar</p>
                 </div>
             </div>
         </div>
@@ -119,6 +119,7 @@ function Review() {
 
 function Community() {
     const navigate = useNavigate();
+    const isAdmin = localStorage.getItem("isAdmin");
 
     return (
         <div className="community-container">
@@ -141,6 +142,10 @@ function Community() {
                 <div className="btn-container">
                     <Button variant="contained" onClick={() => navigate('../login', {replace: true})} color="info">Login</Button>
                     <Button variant="outlined" onClick={() => navigate('../signup', {replace: true})} color="info">Sign-up</Button>
+                </div>
+                <div className="btn-container btn-container-2">
+                    <Button variant="contained"  onClick={() => navigate('../adminLogin', {replace: true})} color="info">Admin-login</Button>
+                    {isAdmin && <Button variant="outlined"  onClick={() => navigate('../adminSignup', {replace: true})} color="info">Admin Signup</Button>}
                 </div>
             </div>
         </div>

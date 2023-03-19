@@ -13,6 +13,10 @@ import App from "./App";
 import UserBoard from "./Pages/userBoard";
 import UserProfile from "./Pages/userProfile";
 import LandingPage from "./Pages/LandingPage";
+import AdminSignUp from "./Pages/AdminSignUp";
+import AdminLogin from "./Pages/AdminLogin";
+import AddQuestion from "./Pages/AddQuestion";
+
 
 
 
@@ -24,8 +28,11 @@ function View() {
         <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/home" element={<UserBoard />}/>
+            <Route path="/adminSignup" exact element={<AdminSignUp />}></Route>
             <Route path="/signup" exact element={<SignUp />} />
+            <Route path="/adminLogin" exact element={<AdminLogin />}></Route>
 			<Route path="/login" exact element={<Login />} />
+            <Route path="/addQuestion" exact element={<AddQuestion />} />
 			<Route path="/ChangePasswordOne" exact element={<ChangePasswordOne />} />
             <Route path="/ChangePasswordTwo" exact element={<ChangePasswordTwo />} />
             <Route path="/takeTest" exact element={<TakeTest />} />

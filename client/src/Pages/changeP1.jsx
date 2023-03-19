@@ -30,7 +30,7 @@ function ChangePasswordOne() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const [email, passkey] =  [data.get('email'), data.get('passkey')];
-        const result = await fetch('http://localhost:3000/api/changePasswordOne', {
+        const result = await fetch('http://localhost:5000/api/changePasswordOne', {
           method: 'POST',
           headers: { 
               'Content-Type': 'application/json'

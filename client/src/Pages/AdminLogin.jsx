@@ -24,7 +24,7 @@ import { SomeContext } from '../App';
 
 const theme = createTheme();
 
-export default function Login() {
+export default function AdminLogin() {
 
   const navigate = useNavigate();
 
@@ -48,6 +48,7 @@ export default function Login() {
       alert(result.error)
     } else {
       localStorage.setItem('resultemail', result.email);
+      
       if (result.isAdmin) {
         localStorage.setItem("isAdmin", result.isAdmin);
         console.log("Admin Logged in");
@@ -78,7 +79,7 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Admin Login
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
